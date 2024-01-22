@@ -1,0 +1,28 @@
+---
+
+  - name: Changing the Hostname of the system
+    ansible.builtin.hostname:
+      name: "{{hostname}}"
+      use: systemd
+
+
+  - name: restart machine
+    command: sudo shutdown -r now "Ansible updates triggered"
+    async: 0
+    poll: 0
+    ignore_errors: True
+
+
+  - name: Wait for system to become reachable
+    ansible.builtin.wait_for_connection:
+
+
+  - name: This command will show the hostname
+    ansible.builtin.shell:
+      cmd: sudo hostname
+    register: hostname_output
+
+  - name: show hostname
+    debug:
+      var: hostname_output.stdout_lines
+

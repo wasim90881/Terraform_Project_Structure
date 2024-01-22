@@ -1,0 +1,5 @@
+plugin: aws_ec2
+groups:
+  # This created two groups - `Production` and `PreProduction` based on tags
+  # These conditionals are expressed using Jinja2 syntax.
+  ASCS: "'ASCS' in tags.Application"
