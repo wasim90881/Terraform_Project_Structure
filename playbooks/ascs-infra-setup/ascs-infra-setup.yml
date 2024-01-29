@@ -1,0 +1,11 @@
+---
+- name: Update host name of server
+  hosts: ASCS 
+  
+
+  vars_files:
+    - group_vars/var2
+
+      
+  roles:
+    - role: '../../roles/hostname_changes'

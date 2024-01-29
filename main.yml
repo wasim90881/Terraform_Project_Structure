@@ -1,0 +1,10 @@
+---
+
+- name: Playbook_1
+  ansible.builtin.import_playbook: deploy.yml
+
+
+
+- name: Playbook_1
+  ansible.builtin.import_playbook: playbooks/ascs-infra-setup/ascs-infra-setup.yml
+
